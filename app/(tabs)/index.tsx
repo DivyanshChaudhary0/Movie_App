@@ -1,13 +1,11 @@
-import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
     <View style={styles.main}>
-      <Text style={{ color: "white", fontSize: 20 }}>Bhola Chaudhary</Text>
-      <Link href={"/login"} style={styles.btn}>
-        Login{" "}
-      </Link>
+        <Text style={{ color: "white", fontSize: 20 }}>
+            Bhola Chaudhary App
+        </Text>
     </View>
   );
 }
