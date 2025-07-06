@@ -5,11 +5,11 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
+
+import { Text, TextInput } from "react-native-paper";
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -26,44 +26,50 @@ export default function Login() {
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <ScrollView contentContainerStyle={styles.main}>
-        <Text>Name</Text>
-        <TextInput
-          value={name}
-          placeholder="Enter your name"
-          onChangeText={setName}
-          style={styles.input}
-        />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.formContainer}>
+          <TextInput
+            label={"Username"}
+            value={name}
+            placeholder="Enter your username"
+            onChangeText={setName}
+            mode="outlined"
+            style={{ width: 280, marginBottom: 16 }}
+          />
 
-        <Text>Email</Text>
-        <TextInput
-          value={email}
-          placeholder="Enter your email"
-          onChangeText={setEmail}
-          style={styles.input}
-        />
+          <TextInput
+            label={"Email"}
+            value={email}
+            placeholder="Enter your email"
+            onChangeText={setEmail}
+            mode="outlined"
+            style={{ width: 280, marginBottom: 16 }}
+          />
 
-        <Text>Password</Text>
-        <TextInput
-          value={password}
-          placeholder="Enter password"
-          onChangeText={setPassword}
-          style={styles.input}
-          secureTextEntry={true}
-        />
+          <TextInput
+            label={"password"}
+            value={password}
+            placeholder="Enter password"
+            onChangeText={setPassword}
+            secureTextEntry={true}
+            mode="outlined"
+            style={{ width: 280, marginBottom: 16 }}
+          />
 
-        <Text>Confirm Password</Text>
-        <TextInput
-          value={confirmPassword}
-          placeholder="Confirm Password"
-          onChangeText={setConfirmPassword}
-          style={styles.input}
-          secureTextEntry={true}
-        />
+          <TextInput
+            label={"Confirm Password"}
+            value={confirmPassword}
+            placeholder="Confirm Password"
+            onChangeText={setConfirmPassword}
+            secureTextEntry={true}
+            mode="outlined"
+            style={{ width: 280, marginBottom: 16 }}
+          />
 
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+            <Text style={styles.buttonText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -76,6 +82,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "pink",
     gap: 20,
+  },
+  formContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 40,
   },
   input: {
     width: 280,
